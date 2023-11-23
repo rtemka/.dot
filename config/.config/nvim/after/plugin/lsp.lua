@@ -1,6 +1,6 @@
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
     -- In this case, we create a function that lets us more easily define mappings specific
     -- for LSP related items. It sets the mode, buffer and description for us each time.
     local nmap = function(keys, func, desc)
@@ -33,6 +33,21 @@ local on_attach = function(_, bufnr)
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, '[W]orkspace [L]ist Folders')
 
+    --[[ -- code lens
+    if client.resolved_capabilities.code_lens then
+        local codelens = vim.api.nvim_create_augroup(
+            'LSPCodeLens',
+            { clear = true }
+        )
+        vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'CursorHold' }, {
+            group = codelens,
+            callback = function()
+                vim.lsp.codelens.refresh()
+            end,
+            buffer = bufnr,
+        })
+    end
+ ]]
     -- Create a command `:Format` local to the LSP buffer
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
@@ -67,7 +82,7 @@ local servers = {
     gopls = {},
     rust_analyzer = {},
     ocamllsp = {},
-    bashls ={},
+    bashls = {},
     -- tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
