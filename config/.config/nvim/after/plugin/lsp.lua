@@ -84,6 +84,9 @@ local servers = {
     ocamllsp = {},
     bashls = {},
     jsonls = {},
+    yamlls = {},
+    dockerls = {},
+    docker_compose_language_service = {},
     -- tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
