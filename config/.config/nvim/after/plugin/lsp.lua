@@ -83,6 +83,7 @@ local servers = {
     rust_analyzer = {},
     ocamllsp = {},
     bashls = {},
+    jsonls = {},
     -- tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
