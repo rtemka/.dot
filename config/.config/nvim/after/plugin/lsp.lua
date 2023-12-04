@@ -48,6 +48,13 @@ local on_attach = function(_, bufnr)
         })
     end
  ]]
+    -- Format on save
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true }),
+        buffer = bufnr,
+        callback = function(_) vim.lsp.buf.format() end
+    })
+
     -- Create a command `:Format` local to the LSP buffer
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()

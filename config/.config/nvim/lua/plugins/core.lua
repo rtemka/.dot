@@ -10,32 +10,33 @@ return {
     end,
   },
  ]]
-    --[[ {
-    'rebelot/kanagawa.nvim',
-    priority = 995,
-    config = function()
-      vim.cmd.colorscheme 'kanagawa' -- or kanagawa-wave or kanagawa-dragon or kanagawa-lotus
-    end,
-  },
+    {
+        'rebelot/kanagawa.nvim',
+        priority = 994,
+        config = function()
+            vim.cmd.colorscheme 'kanagawa' -- or kanagawa-wave or kanagawa-dragon or kanagawa-lotus
+        end,
+    },
 
+    {
+        "catppuccin/nvim",
+        priority = 995,
+        config = function()
+            vim.cmd.colorscheme 'catppuccin'
+        end,
+    },
 
-  { "catppuccin/nvim",
-    priority = 998,
-    config = function()
-        vim.cmd.colorscheme 'catppuccin'
-    end,
-  },
+    {
+        'shaunsingh/nord.nvim',
+        priority = 997,
+        config = function()
+            vim.cmd.colorscheme 'nord'
+        end,
+    },
 
-  { 'shaunsingh/nord.nvim',
-    priority = 997,
-    config = function()
-        vim.cmd.colorscheme 'nord'
-    end,
-  },
- ]]
     {
         'ellisonleao/gruvbox.nvim',
-        priority = 994,
+        priority = 998,
         config = function()
             vim.cmd.colorscheme 'gruvbox'
         end,
