@@ -16,14 +16,18 @@ git config --global https.proxy "$NEW_PROXY"
 git config --global http.proxyauthmethod basic
 
 # export in .bashrc for others programs like wget.
-sed -E -i "s|(^export http[s]?_proxy=).*$|\1$NEW_PROXY|g" ~/.bashrc
+sed -E -i "s|(^export http[s]?_proxy=).*$|\1$NEW_PROXY|ig" ~/.bashrc
 if [ $? -ne 0 ]; then
 	echo "$PROGRAM: append proxies to ~/.bashrc"
 	echo "export http_proxy=$NEW_PROXY" >> ~/.bashrc
 	echo "export https_proxy=$NEW_PROXY" >> ~/.bashrc
 fi
 
-# package manager proxy
-sudo sed -E -i "s|(^Acquire::http[s]?::Proxy \").*(\";$)|\1$NEW_PROXY\2|g" /etc/apt/apt.conf
-# Docker deamon.json proxy
-sudo sed -E -i "s|(\"http[s]?-proxy\": \").*(\")|\1$NEW_PROXY\2|g" /etc/docker/daemon.json
+if [ -f /etc/apt/apt.conf ]; then
+    # package manager proxy
+    sudo sed -E -i "s|(^Acquire::http[s]?::Proxy \").*(\";$)|\1$NEW_PROXY\2|g" /etc/apt/apt.conf
+fi
+if [ -f /etc/docker/daemon.json ]; then
+    # Docker deamon.json proxy
+    sudo sed -E -i "s|(\"http[s]?-proxy\": \").*(\")|\1$NEW_PROXY\2|g" /etc/docker/daemon.json
+fi

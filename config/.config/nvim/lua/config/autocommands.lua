@@ -17,7 +17,14 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     group = fmt_on_save_group
 })
 
-
+-- local code_lens_group = vim.api.nvim_create_augroup('LSPCodeLens', { clear = true })
+-- vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'CursorHold' }, {
+--     callback = function()
+--         vim.lsp.codelens.refresh()
+--     end,
+--     group = code_lens_group
+-- })
+--
 --[[ Bash language server ]]
 --[[ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'sh',

@@ -19,6 +19,22 @@ return {
     },
 
     {
+        'sainnhe/everforest',
+        priority = 993,
+        config = function()
+            vim.cmd.colorscheme 'everforest'
+        end,
+    },
+
+    {
+        'rose-pine/neovim',
+        priority = 992,
+        config = function()
+            vim.cmd.colorscheme 'rose-pine'
+        end,
+    },
+
+    {
         "catppuccin/nvim",
         priority = 995,
         config = function()
@@ -54,7 +70,7 @@ return {
         opts = {
             options = {
                 icons_enabled = true,
-                theme = 'gruvbox-material',
+                theme = 'onedark',
                 component_separators = '|',
                 section_separators = '',
             },

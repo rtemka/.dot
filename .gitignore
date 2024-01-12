@@ -1,1 +1,2 @@
 config/.config/go/telemetry/local/*
+config/.config/nvim/lazy-lock.json
