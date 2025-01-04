@@ -83,6 +83,8 @@ return {
         { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
     },
 
+    { 'echasnovski/mini.nvim',   version = false },
+
     -- "gc" to comment visual regions/lines
     { 'numToStr/Comment.nvim',   opts = {} },
     -- terminal
