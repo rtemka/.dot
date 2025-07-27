@@ -18,13 +18,13 @@ return {
         end,
     },
 
-    {
-        'sainnhe/everforest',
-        priority = 993,
-        config = function()
-            vim.cmd.colorscheme 'everforest'
-        end,
-    },
+    -- {
+    --     'sainnhe/everforest',
+    --     priority = 993,
+    --     config = function()
+    --         vim.cmd.colorscheme 'everforest'
+    --     end,
+    -- },
 
     {
         'rose-pine/neovim',
@@ -42,22 +42,22 @@ return {
         end,
     },
 
-    {
-        'shaunsingh/nord.nvim',
-        priority = 997,
-        config = function()
-            vim.cmd.colorscheme 'nord'
-        end,
-    },
-
-    {
-        'ellisonleao/gruvbox.nvim',
-        priority = 998,
-        config = function()
-            vim.cmd.colorscheme 'gruvbox'
-        end,
-    },
-
+    -- {
+    --     'shaunsingh/nord.nvim',
+    --     priority = 997,
+    --     config = function()
+    --         vim.cmd.colorscheme 'nord'
+    --     end,
+    -- },
+    --
+    -- {
+    --     'ellisonleao/gruvbox.nvim',
+    --     priority = 998,
+    --     config = function()
+    --         vim.cmd.colorscheme 'gruvbox'
+    --     end,
+    -- },
+    --
     { 'nvim-tree/nvim-web-devicons', opts = {} },
 
     -- Useful plugin to show you pending keybinds.
