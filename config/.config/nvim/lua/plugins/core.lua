@@ -1,6 +1,6 @@
 return {
     -- vim blazingly fast training :=)
-    { 'ThePrimeagen/vim-be-good' },
+    -- { 'ThePrimeagen/vim-be-good' },
 
     --[[ {
     'navarasu/onedark.nvim',
@@ -28,7 +28,7 @@ return {
 
     {
         'rose-pine/neovim',
-        priority = 992,
+        priority = 995,
         config = function()
             vim.cmd.colorscheme 'rose-pine'
         end,
@@ -36,7 +36,7 @@ return {
 
     {
         "catppuccin/nvim",
-        priority = 995,
+        priority = 992,
         config = function()
             vim.cmd.colorscheme 'catppuccin'
         end,

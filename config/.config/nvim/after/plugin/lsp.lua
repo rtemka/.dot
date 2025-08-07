@@ -1,4 +1,20 @@
 -- -- [[ Configure LSP ]]
+-- Add jinja filetypes detection.
+vim.filetype.add {
+    extension = {
+        jinja = 'jinja',
+        jinja2 = 'jinja',
+        j2 = 'jinja',
+    },
+}
+local lspconfig = require("lspconfig")
+lspconfig.gopls.setup({
+    settings = {
+        gopls = {
+            gofumpt = true, -- Enable gofumpt for formatting
+        },
+    },
+})
 -- --  This function gets run when an LSP connects to a particular buffer.
 -- local on_attach = function(_, bufnr)
 --     -- In this case, we create a function that lets us more easily define mappings specific
