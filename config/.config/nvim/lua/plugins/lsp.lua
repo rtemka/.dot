@@ -21,6 +21,15 @@ return { {
         vim.lsp.config("*", {})
         vim.lsp.enable({ "gopls", "clangd", "yamlls", "lua_ls", "pylsp", "rust_analyzer", "ts_ls", "dockerls", "bashls",
             "html", "jsonls", "docker_compose_language_service", "jinja-lsp" })
+        -- Some custom setting for gopls. Those settings will be merged with default lspconfig.
+        -- https://neovim.io/doc/user/lsp.html#lsp-config
+        vim.lsp.config("gopls", {
+            settings = {
+                gopls = {
+                    gofumpt = true, -- Enable gofumpt for formatting
+                }
+            }
+        })
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
             callback = function(event)

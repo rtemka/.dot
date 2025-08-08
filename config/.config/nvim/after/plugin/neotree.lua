@@ -12,6 +12,7 @@ require('neo-tree').setup({
         }
     },
     window = {
-        position = "right" -- Where to open NeoTree window.
+        position = "right", -- Where to open NeoTree window.
+        width = 46
     }
 })
