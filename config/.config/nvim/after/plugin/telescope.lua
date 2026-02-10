@@ -28,9 +28,9 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>SF', function()
+vim.keymap.set('n', '<leader>scf', function()
     require('telescope.builtin').find_files({ cwd = vim.fn.expand('%:p:h') })
-end, { desc = '[S]earch [F]iles relative to buffer' })
+end, { desc = '[S]earch [C]urrent Directory [F]iles (e.g relative to current directory)' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
@@ -38,4 +38,5 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>',
     { noremap = true, desc = '[F]ile [B]rowser relative to buffer' })
-vim.keymap.set('n', '<leader>FB', ':Telescope file_browser<CR>', { noremap = true, desc = '[F]ile [B]rowser' })
+vim.keymap.set('n', '<leader>frb', ':Telescope file_browser<CR>',
+    { noremap = true, desc = '[F]ile [R]oot [B]rowser(e.g relative to root dir)' })

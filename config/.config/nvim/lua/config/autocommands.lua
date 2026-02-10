@@ -17,6 +17,31 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     group = fmt_on_save_group
 })
 
+local go_fmt_group = vim.api.nvim_create_augroup('GoFormat', { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.go",
+    callback = function(args)
+        -- Execute the organizeImports command for Go
+        vim.lsp.buf.code_action({
+            context = {
+                only = { "source.organizeImports" },
+                diagnostics = {},
+            },
+            apply = true, -- Apply the action automatically
+            -- bufnr = vim.api.nvim_get_current_buf(),
+            bufnr = args.buf,
+        })
+    end,
+    group = go_fmt_group
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local bufnr = args.buf
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = '[C]ode [A]ction' })
+    end,
+})
+
 -- local code_lens_group = vim.api.nvim_create_augroup('LSPCodeLens', { clear = true })
 -- vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'CursorHold' }, {
 --     callback = function()
