@@ -47,4 +47,6 @@ luac.out
 config/.config/go/telemetry/local/*
 ssh/.ssh/*
 !ssh/.ssh/config.template
+config/.config/tmux/plugins/*
 
+.DS_store
